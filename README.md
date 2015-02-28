@@ -14,9 +14,10 @@
     Introducción:
 ------------------------------------
 
-    Con este archivo Readme se busca aclarar posibles dudas sobre el contenido de 
-los archivos del proyectom de las funciones que se implementaron, su accionar,
-como se interrelacionan entre sí y las decisiones de diseno que se tomaron.
+    Con este archivo Readme se busca aclarar posibles dudas sobre el contenido 
+de los archivos del proyectom de las funciones que se implementaron, su 
+accionar, como se interrelacionan entre sí y las decisiones de diseno que se 
+tomaron.
 
 
 ------------------------------------
@@ -40,33 +41,32 @@ como se interrelacionan entre sí y las decisiones de diseno que se tomaron.
 			
 	Los predicados elaborados para resolver dicho problema son:
 
-		- estacion(X): unifica X con todas las ciudades/soluciones
+		- estacion/1: unifica X con todas las ciudades/soluciones
 		 	que pueden considerarse como "mejor".
 
-		- pequena(X): tiene exito si unifica X con una ciudad pequena.
+		- pequena/1: tiene exito si unifica X con una ciudad pequena.
 
-		- grande(X): tiene exito si unifica X con una ciudad grande.
+		- grande/1: tiene exito si unifica X con una ciudad grande.
 
-		- bfs(I,F,C): tiene exito si unifica Camino con un
+		- bfs/3: tiene exito si unifica Camino con un
 			camino optimo desde inicio hasta fin. 
 
-		- bfs_helper(I,F,R,C,V,Cam): ejecutando el algoritmo de BFS recorre
-			el grafo buscando la ruta optima desde el nodo I hasta el nodo F,
-			tiene exito si unifica Cam con dicha ruta. 
+		- bfs_helper/6: ejecutando el algoritmo de BFS recorre el grafo buscando
+			la ruta optima desde el nodo I hasta el nodo F, tiene éxito si 
+			unifica Cam con dicha ruta. 
 
-		- armar_camino(I,R,C,T): recorre la ruta que tomo el BFS de Fin 
-			a inicio armando el camino optimo. Tiene exito si unifica C 
-			con dicho camino.
+		- armar_camino/4: recorre la ruta que tomo el BFS de Fin a inicio 
+			armando el camino óptimo. Tiene éxito si unifica C con dicho camino.
 
-		- buena(X,C):- determina si una ciudad es buena y el costo a sus
-			ciudades grandes mas cercanas. Tiene exito si unifica X con esa
-			ciudad y C con dicho costo.
+		- buena/2: determina si una ciudad es buena y el costo a sus ciudades 
+			grandes más cercanas. Tiene éxito si unifica X con esa ciudad y C 
+			con dicho costo.
 
-		- mejor(X): predicado que unifica X con una ciudad que cumpla las 
+		- mejor/1: predicado que unifica X con una ciudad que cumpla las 
 			condiciones necesarias.
 
-		- todos_mejores(M,L,X): predicado auxiliar que unifica X con cada 
-			una de las ciudades de la lista de buenas que pueden ser 
+		- todos_mejores/3: predicado auxiliar que unifica X con cada una de las 
+			ciudades de la lista de buenas que pueden ser 
 			consideradas como "mejor".
 
 --------------
@@ -85,40 +85,35 @@ como se interrelacionan entre sí y las decisiones de diseno que se tomaron.
 
 	Los predicados elaborados para resolver dicho problema son:
 
-		- estrella(X): predicado capaz de unificar X con una estrella mágica o
+		- estrella/1: predicado capaz de unificar X con una estrella mágica o
 			dado un X ya unificado verificar si este es una estrella mágica.
 
-		- check(A,B,C,D): regla que verifica si los elementos de la linea suman 
-			34 (4 * N + 2)
+		- check/4: regla que verifica si los elementos de la linea suman 
+			34 (4 * N + 2).
 
-		- checkValues(L): predicado que verifica si los valores de L estan entre
+		- checkValues/1: predicado que verifica si los valores de L estan entre
 			el 1 y 16 (2*N).
 
-		-checkGreen([A,B,C,_,_,F,_,H,_,J,_,L,_,_,_,_]): predicado que chequea el
-			lado izquierdo de ambos cuadrados (esta linea la llamamos linea 
-			verde, sirvase de ver la imagen "estrella" ubicada en esta misma
-			carpeta para mas claridad).
+		-checkGreen/1: predicado que chequea el lado izquierdo de ambos 
+			cuadrados (esta línea la llamamos línea verde, sírvase de ver la 
+			imagen "estrella" ubicada en esta misma carpeta para más claridad).
 
-		-checkBlue([A,B,C,D,E,_,G,_,I,_,_,_,_,_,_,_]): predicado que chequea el
-			lado superior de ambos cuadrados (esta linea la llamamos linea azul,
-			sirvase de ver la imagen "estrella" ubicada en esta misma carpeta 
-			para mas claridad).
+		-checkBlue/1: predicado que chequea el lado superior de ambos cuadrados 
+			(esta línea la llamamos línea azul, sírvase de ver la imagen 
+			"estrella" ubicada en esta misma carpeta para más claridad).
 
-		-checkYellow([_,_,_,_,_,_,_,H,_,J,_,L,M,N,O,P]): predicado que chequea el
-			lado inferior de ambos cuadrados (esta linea la llamamos linea 
-			amarilla, sirvase de ver la imagen "estrella" ubicada en esta misma
-			carpeta para mas claridad).
+		-checkYellow/1: predicado que chequea el lado inferior de ambos 
+			cuadrados (esta línea la llamamos línea amarilla, sírvase de ver la 
+			imagen "estrella" ubicada en esta misma	carpeta para más claridad).
 
-		-checkOrange([_,_,_,_,E,_,G,_,I,_,K,_,_,N,O,P]): predicado que chequea el
-			lado derecho de ambos cuadrados (esta linea la llamamos linea 
-			naranja, sirvase de ver la imagen "estrella" ubicada en esta misma
-			carpeta para mas claridad).
+		-checkOrange/1: predicado que chequea el lado derecho de ambos cuadrados 
+			(esta línea la llamamos línea naranja, sírvase de ver la imagen 
+			"estrella" ubicada en esta misma carpeta para más claridad).
 
-		-generate([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P]): predicado que genera las 
-			estrellas magicas asegurandose de que cumplan todas las condiciones
-			previamente establecidas.
+		-generate/1: predicado que genera las estrellas mágicas asegurándose de 
+			que cumplan todas las condiciones previamente establecidas.
 
-		-genNumeros(0,H): predicado que genera los numeros de 1 hasta N.
+		-genNumeros/2: predicado que genera los numeros de 1 hasta N.
 		  
 --------------
 | Problema 3 |
@@ -134,81 +129,77 @@ como se interrelacionan entre sí y las decisiones de diseno que se tomaron.
 
 	Los predicados elaborados para resolver dicho problema son:
 
-		- leer(L,M,N): predicado que se encarga de recibir un nombre de archivo,
+		- leer/3: predicado que se encarga de recibir un nombre de archivo,
 			leer su contenido,interpretarlo y unificarlo con una lista "L" de
 			puntos abiertos. Asi mismo, se encarga de unificar M y N con el 
 			numero de filas y columnas respectivamente.
 
-		- resolver(A,M,N,C): predicado que toma las medidas M y N del laberinto
-			asi como la lista de puntos abiertos "A" y de determinar todos los 
+		- resolver/4: predicado que toma las medidas M y N del laberinto así 
+			como la lista de puntos abiertos "A" y de determinar todos los 
 			caminos "C" que lleven del inicio (0,0) a las salida.
 
-		- escribir(C,M,N,A): pedicado que toma las medidad M y N del laberinto
-			asi como una lista de puntos abiertos "A" y una solucion "C" del 
-			laberinto y escribe por salida estandar dicho laberinto con su 
-			respectiba solucion.
+		- escribir/4: pedicado que toma las medidad M y N del laberinto	así como 
+			una lista de puntos abiertos "A" y una solución "C" del laberinto y 
+			escribe por salida estándar dicho laberinto con su respectiva 
+			solución.
 
-		- resolver_optimo(A,M,N,C): predicado extra que retorna una solucion
-			optima para cada salida que exista en el grafo. Esto, mediante el
-			uso del algoritmo BFS.
+		- resolver_optimo/4: predicado extra que retorna una solución óptima 
+			para cada salida que exista en el grafo. Esto, mediante el uso del 
+			algoritmo BFS.
 
-		- arriba(X,Y,X,Y2): predicados que da las cordenadas resultantes luego
-			de moverse hacia arriba en el eje Y (una fila menos).
+		- arriba/4: predicados que da las cordenadas resultantes luego de 
+			moverse hacia arriba en el eje Y (una fila menos).
 
-		-abajo(X,Y,X,Y2): predicados que da las cordenadas resultantes luego
-			de moverse hacia abajo en el eje Y (una fila mas).
+		- abajo/4: predicados que da las cordenadas resultantes luego de moverse 
+			hacia abajo en el eje Y (una fila más).
 
-		-derecha(X,Y,X2,Y): predicados que da las cordenadas resultantes luego
-			de moverse hacia la derecha en el eje X (una columna mas).
+		- derecha/4: predicados que da las cordenadas resultantes luego de 
+			moverse hacia la derecha en el eje X (una columna más).
 
-		-izquierda(X,Y,X2,Y): predicados que da las cordenadas resultantes luego
-			de moverse hacia la izquierda en el eje X (una columna menos).
+		- izquierda/4: predicados que da las coordenadas resultantes luego de 
+			moverse hacia la izquierda en el eje X (una columna menos).
 
-		-valido(X,Y,M,N): redicado que determina si un punto esta dentro del 
+		- valido/4: predicado que determina si un punto está dentro del 
 			laberinto.
 
-		- moverse(X,Y,X2,Y2): predicado que determina todos los movimientos 
-			desde un punto de inicio (x,y).
+		- moverse/4: predicado que determina todos los movimientos desde un 
+			punto de inicio (x,y).
 
-		-vecino(X,Y,VX,VY,M,N,A): predicado que determina si un punto es vecino
-			de otro.
+		- vecino/7: predicado que determina si un punto es vecino de otro.
 
-		-salida(X,Y,N,L):predicado que determina si un punto es salida del 
-			laberinto. Para esto se ve si es un punto abierto y esta en la 
-			ultima columna.
+		- salida/4: predicado que determina si un punto es salida del laberinto. 
+			Para esto se ve si es un punto abierto y esta en la última columna.
 
-		-camino(Xini,Yini,Xfin,Yfin,M,N,A,C): predicado que calcula los caminos
-			"C" desde el punto (Xini,Yini) hasta (Xfin,Yfin) a traves de los 
-			puntos abiertos en la lista "A".
+		- camino/8: predicado que calcula los caminos "C" desde el punto 
+			(Xini,Yini) hasta (Xfin,Yfin) a traves de los puntos abiertos en la 
+			lista "A".
 
-		-calcular(Xini,Yini,Xini,Yini,M,N,C,A,V): predicado
-			que recorre el laberinto en busca de la salida tomando la decision
-			de hacia donde moverse dependiendo de los casos presentados. Tiene
-			exito si logra unificar "C" con un camino hasta la salida.
+		- calcular/9: predicado	que recorre el laberinto en busca de la salida 
+			tomando la decisión de hacia donde moverse dependiendo de los casos 
+			presentados. Tiene éxito si logra unificar "C" con un camino hasta 
+			la salida.
 
-		-bfs(Xi,Yi,Xf,Yf,M,N,A,C) tiene exito si unifica Camino con un
-			camino optimo desde inicio hasta fin. 
+		- bfs/8: tiene éxito si unifica Camino con un camino óptimo desde inicio 
+			hasta fin. 
 
-		-bfs_helper(Xi,Yi,Xf,Yf,M,N,A,R,C,V,Cam): ejecutando el algoritmo de BFS
-			recorre el laberitno buscando la ruta optima desde la entrada a cada 
-			una de las salidas existentes. Tiene exito si logra unificar "Cam" 
-			con dicha solucion.
+		- bfs_helper/11: ejecutando el algoritmo de BFS recorre el laberinto 
+			buscando la ruta óptima desde la entrada a cada una de las salidas 
+			existentes. Tiene éxito si logra unificar "Cam" con dicha solución.
 
-		- armar_camino(Xi,Yi,R,C,T): recorre la ruta que tomo el BFS de Fin
-			a inicio armando el camino optimo. Tiene exito si unifica C 
-			con dicho camino.
+		- armar_camino/5: recorre la ruta que tomo el BFS de Fin a inicio 
+			armando el camino óptimo. Tiene éxito si unifica C con dicho camino.
 
-		- procesar_lectura(Ch,S,X,Y,M,N,A,T): predicado que se encarga de
-			interpretar los caracteres leidos del archiv "S". Determinando las 
-			dimensiones M y N, asi como la lista "A" de puntos abiertos.
+		- procesar_lectura/8: predicado que se encarga de interpretar los 
+			caracteres leídos del archiv "S". Determinando las dimensiones M y 
+			N, así como la lista "A" de puntos abiertos.
 
-		- procesar_escritura(X,Y,S,O,M,N):- predicado que se encarga de imprimir
-			en salida standard un laberinto dada una lista de espacios abiertos 
-			y un camino/solucion.
+		- procesar_escritura/6: predicado que se encarga de imprimir en salida 
+			estándar un laberinto dada una lista de espacios abiertos y un 
+			camino/solucion.
 
-		- siguiente(X,Y,XN,YN,M,N): predicado que determina cual es el siguiente
-			 punto a imprimir dentro del laberinto asumiendo que este se recorre
-			 de izquierda a derecha y de arriba abajo.
+		- siguiente/6: predicado que determina cual es el siguiente punto a 
+			imprimir dentro del laberinto asumiendo que este se recorre de 
+			izquierda a derecha y de arriba abajo.
 
 --------------
 | Problema 4 |
@@ -219,37 +210,45 @@ como se interrelacionan entre sí y las decisiones de diseno que se tomaron.
 		 dar un predicado unifica(X,Y) que tendrá éxito en el caso que sus 
 		 argumentos de entrada unifiquen y falle en caso contrario.
 
-              
+    Los predicados elaborados para resolver dicho problema son:
 
+    	- unificacion/2: este predicado, se encarga de realizar la unificacion
+    	entre dos términos U y V.
+
+    	- unificarArgumentos/5: este predicado recibe dos functores, un contador
+    	para ayudar a unificar los parámetros de los mismos, y el número de 
+    	parámetros de dichos functores (ambos functores deben tener la misma
+    	cantidad de parámetros).
 
 ------------------------------------   
-      Decisiones de Diseno
+      Decisiones de Diseño
 ------------------------------------ 
      
-    1) Implementacion de BFS: se decidio implementar el algoritmo de BFS para 
+    1) Implementación de BFS: se decidio implementar el algoritmo de BFS para 
     		el problema 1 ya que esto mejora considerablemente la velocidad
     		con que se consigue la respuesta del mismo. Al usar este algoritmo
     		garantizamos que las dos primeras ciudades grandes que encontremos
-    		seran las mas cercanas y en ese momento podemos comparar sus 
+    		serán las más cercanas y en ese momento podemos comparar sus 
     		distancias y no tener que buscar otras posibilidades, las cuales no
-    		serian utiles.
+    		serian útiles.
 
-     Revisiones en Estrellas ->
+    2) Generar Estrellas Mágicas: para verificar si una estrella es mágica, es 
+    		una simple verificación de suma de valores. Ahora para generar todas 
+    		las estrellas mágicas, se van probando los valores uno a uno, y se 
+    		descartan aquellas las soluciones erróneas lo más pronto posible.
+
      
-     3) Puntos del Laberinto --> Se toman los puntos como tuplan de coordenadas
-     		(X,Y), siendo "X" la referente a la fila y "Y" a la columna.
+	3) Puntos del Laberinto --> Se toman los puntos como tuplan de coordenadas
+			(X,Y), siendo "X" la referente a la fila y "Y" a la columna.
 
-     4) Resolucion Optima del Laberinto -> se decidio implementar un predicado
-     		extra llamado "resolver_optimo" el cual optiene una ruta optima para 
-     		cada posible salida del laberinto, siendo necesario para esto que se
-     		modificara el algoritmo de BFS implementado para el problema 1.
-
-
-     magia en unificacion -> 
+	4) Resolucion Optima del Laberinto -> se decidio implementar un predicado
+			extra llamado "resolver_optimo" el cual optiene una ruta optima para 
+			cada posible salida del laberinto, siendo necesario para esto que se
+			modificara el algoritmo de BFS implementado para el problema 1.
          
 ------------------------------------   
         Contacto
 ------------------------------------ 
 
-caat91@gmail.com
-donatorolo93@gmail.com
+email: caat91@gmail.com
+email: donatorolo93@gmail.com
